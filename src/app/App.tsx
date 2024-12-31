@@ -5,7 +5,9 @@ import {
   buildCollection,
   buildProperty,
   FirebaseCMSApp
-} from "firecms";
+} from "@firecms/core";
+import { FireCMS } from "@firecms/core";
+
 
 import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
@@ -32,6 +34,7 @@ type Users = {
 };
 
 const rolesCollection = buildCollection<Roles>({
+  id: "roles",
   name: "Roles",
   path: "roles",
   properties: {
@@ -40,6 +43,7 @@ const rolesCollection = buildCollection<Roles>({
 });
 
 const usersCollection = buildCollection<Users>({
+  id: "users",
   name: "Users",
   path: "users",
   properties: {
