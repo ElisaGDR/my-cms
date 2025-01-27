@@ -2,13 +2,10 @@ import React from "react";
 import { User as FirebaseUser } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import {
+  CMSApp,
   buildCollection,
   buildProperty,
-  FirebaseCMSApp
 } from "@firecms/core";
-import { FireCMS } from "@firecms/core";
-
-
 import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
 
@@ -67,18 +64,14 @@ const myAuthenticator = async (user: FirebaseUser | null): Promise<boolean> => {
 
 export default function App() {
   return (
-    <FirebaseCMSApp
+    <CMSApp
       name={"DMS"}
       authentication={myAuthenticator}
       collections={[rolesCollection, usersCollection]}
       firebaseConfig={firebaseConfig}
       secondaryColor="#152438"
       primaryColor="#63cb83"
-      signInOptions={[
-        {
-          provider: "password"
-        }
-      ]}
+      signInOptions={["password"]}
     />
   );
 }
